@@ -134,6 +134,13 @@ class csstidy_optimise {
 				}
 			}
 		}
+
+		// Custom fix for badly formatted comments that look like this: /*!* RESET STYLES *!*/
+		foreach ($this->css as $medium => $value) {
+			if (is_string($value)) {
+				unset($this->css[$medium]);
+			}
+		}
 	}
 
 	/**
@@ -341,7 +348,7 @@ class csstidy_optimise {
 			for ($i = 0; $i < count($color_tmp); $i++) {
 				$color_tmp[$i] = trim($color_tmp[$i]);
 				if (substr($color_tmp[$i], -1) === '%') {
-					$color_tmp[$i] = round((255 * $color_tmp[$i]) / 100);
+					$color_tmp[$i] = round((255 * (int) $color_tmp[$i]) / 100);
 				}
 				if ($color_tmp[$i] > 255)
 					$color_tmp[$i] = 255;
