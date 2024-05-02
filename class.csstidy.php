@@ -977,6 +977,11 @@ class csstidy {
 	 */
 	public function quote_font_format($value) {
 		if (strncmp($value,'format',6) == 0) {
+			// Avoiding uncaught ValueError with strpos() in case the input
+			// isn't at least 7 characters long
+			if (strlen($value) < 7) {
+				return '';
+			}
 			$p = strpos($value,')',7);
 			$end = substr($value,$p);
 			$format_strings = $this->parse_string_list(substr($value, 7, $p-7));
