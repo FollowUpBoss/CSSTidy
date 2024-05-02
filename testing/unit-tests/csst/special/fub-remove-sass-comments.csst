@@ -1,0 +1,56 @@
+--TEST--
+Remove SASS comments that start with /*!
+--CSS--
+table, td { font-family: \'Noto Sans\', Helvetica, Arial, sans-serif; }
+/*!* CLIENT-SPECIFIC STYLES *!*/
+body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+img { -ms-interpolation-mode: bicubic; }
+
+/*!* RESET STYLES *!*/
+img { border: 0; line-height: 100%; outline: none; text-decoration: none; }
+table { border-collapse: collapse !important; }
+body { height: 100% !important; Margin: 0 !important; padding: 0 !important; width: 100% !important; }
+--PRINT--
+table,td
+{
+	font-family:\'Noto Sans\',Helvetica,Arial,sans-serif
+}
+
+body,table,td,a
+{
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%
+}
+
+table,td
+{
+	mso-table-lspace:0;
+	mso-table-rspace:0
+}
+
+img
+{
+	-ms-interpolation-mode:bicubic;
+	border:0;
+	line-height:100%;
+	outline:none;
+	text-decoration:none
+}
+
+table
+{
+	border-collapse:collapse!important
+}
+
+body
+{
+	height:100%!important;
+	margin:0!important;
+	padding:0!important;
+	width:100%!important
+}
+--SETTINGS--
+template='low'
+sort_properties=false
+sort_selectors=false

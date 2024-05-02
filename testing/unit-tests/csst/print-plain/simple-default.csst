@@ -41,7 +41,6 @@ Edited by Daz  - http://www.forumimages.com - last updated 26-06-03 */
     	font-size: 9px;
     }
 --PRINT--
-/*! test.css v2 | Licence MIT http://www.forumimages.com*/
 .float-l {
 float:left
 }
